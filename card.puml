@@ -1,0 +1,17 @@
+@startuml
+start
+:cardSymbols = ['club', 'diamond', 'heart', 'spade'];
+:cardNumbers = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+:cardDeck = [];
+while (symbol in cardSymbols) is (cardSymbols ยังไม่หมด)
+    while (number in cardNumbers) is (cardNumbers ยังไม่หมด)
+        :card = {'symbol':symbol,'number':number};
+        :cardDeck.append(card);
+    endwhile
+endwhile
+:print('ไพ่ในสำรับมีทั้งหมดเป็น');
+:print(cardDeck);
+:print('********');
+:จบโปรแกรม;
+end
+@enduml
