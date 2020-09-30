@@ -20,6 +20,8 @@ for player in  players:
     totalPlayerPoint = 0
     playerSymbol = []
     playerNumber = []
+    pokMessage = ""
+    dengMessage = ""
     cardRandom = random.choice(cardDeck)
     playerDeck.append(cardRandom)
     cardDeck.remove(cardRandom)
