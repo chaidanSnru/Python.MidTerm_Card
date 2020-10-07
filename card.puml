@@ -12,6 +12,49 @@ endwhile
 :print('ไพ่ในสำรับมีทั้งหมดเป็น');
 :print(cardDeck);
 :print('********');
+:players = ['Mr.M', 'Mr.N', 'Miss.O', 'Miss.P'];
+while (player in players) is (player ยังไม่หมด)
+    :playerDeck = [];
+    :totalPlayerPoint = 0;
+    :playerSymbol = [];
+    :playerNumber = [];
+    :pokMessage = "";
+    :dengMessage = "";
+    :cardRandom = random.choice(cardDeck);
+    :playerDeck.append(cardRandom);
+    :cardDeck.remove(cardRandom);
+    :cardRandom = random.choice(cardDeck);
+    :playerDeck.append(cardRandom);
+    :cardDeck.remove(cardRandom);
+    :print(f'{player} ได้ไพ่เป็น {playerDeck}');
+    while (playerCard in playerDeck) is (ไพ่ใน playerDeck ยังไม่หมด)
+        :playerSymbol.append(playerCard['symbol']);
+        :playerNumber.append(playerCard['number']);
+        if (playerCard['number'] not in ['10','J','Q','K','A']) then (yes)
+            :playerPoint = int(playerCard['number']);
+            :totalPlayerPoint += playerPoint;
+        else(no)
+            :playerPoint = 0;
+            :totalPlayerPoint += playerPoint;
+        endif
+        if (totalPlayerPoint >= 10:) then (yes)
+            :totalPlayerPoint -= 10;
+        endif
+        if (totalPlayerPoint > 7:) then (yes)
+            :pokMessage = "ป็อก";
+        else(no)
+            :pokMessage = "";
+        endif
+        if (len(playerSymbol) == 2:) then (yes)
+            if (playerSymbol[0] == playerSymbol[1] or playerNumber[0] == playerNumber[1]:) then (yes)
+                :dengMessage = "2 เด้ง";
+            else
+                :dengMessage = "" ;
+            endif
+        else
+            :pass;
+        endif
+    endwhile
+endwhile
 :จบโปรแกรม;
-end
 @enduml
